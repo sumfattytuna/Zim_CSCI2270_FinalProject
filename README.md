@@ -12,7 +12,10 @@ adding new movies, deleting movies, searching for a movie, and printing the
 entire hash table, the program will be able to read in a text file into the hash table
 (we will be using the movie file from assignment 5), store more values than just the \
 year of the movie, such as imdb rating, and the ability to create a new txt file
-that is updated with the newly deleted or inserted movies.
+that is updated with the newly deleted or inserted movies.  
+	There will also be some additions to the menu that pick up on topics 
+learned earlier in the semester.  Their will be an option to store the hash table
+as a binary search tree and then to a red and black tree.
 
 How to Run:
 
