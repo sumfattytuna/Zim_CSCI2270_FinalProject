@@ -8,19 +8,22 @@
 #include <stdlib.h>
 #include <vector>
 #include "Hash.cpp"
+#include "Tree.cpp"
 
 using namespace std;
 
 int main(){
 
-
+isHash = true;
 int input;
 void displayMenu();
 vector<int> indList;
 Hash h;
+Tree t;
 //int imdb, quantity;
  string imdb, title, year, quantity;
  bool quit = false;
+ t.tree();
  h.hasher();
  bool jaked = true;
  	string fileName;
@@ -74,6 +77,7 @@ Hash h;
                 getline(cin, year);
                 cout << "Enter quantity:" << endl;
                 getline(cin, quantity);
+                if (isHash == true){
                 h.insertMovie(imdb, title, year, quantity);
                 for (unsigned int i =0;i<indList.size();i++){
 					if(h.hashSum(title) == indList[i]){
@@ -82,35 +86,67 @@ Hash h;
 					if (jaked ==true){
              indList.push_back(h.hashSum(title));
 		 }
+	 }else{
+		 t.addMovieNode(imdb,title, year, quantity);
+		 }
                 break;
 
             case 3:
                 cout << "Enter title:" << endl;
                 getline(cin,title);
+                if (isHash == true){
                 h.DelMovie(title);
-                break;
+                
+			}else{
+				t.deleteMovieNode(title);
+				}
+				break;
             // Find a movie
 
             case 4:
                 cout << "Enter title:" << endl;
                 getline(cin,title);
+                if (isHash == true){
                 h.FindMovie(title);
+			}else{
+				t.findMovie(title);
+			}
                 break;
                 
 			case 5:
-                covertTable(indList);
+			if (isHash == true){
+                h.convertTable(indList);
+                isHash = false;
+			}else{
+				t.convertTable();
+			}
                 cout << "Table converted"<< endl;
                 break;
 
             case 6:
-            for (unsigned int i = 0;i<indList.size();i++){
+            if (isHash == true){
+				for (unsigned int i = 0;i<indList.size();i++){
 				cout <<i;
                 h.PrintTable(indList[i]);
+			}else{
+				t->printMovieInventory();
+				}
 			}
 			break;
+			
+			case 7:
+			if (isHash == true){
+				for (unsigned int i = 0;i<indList.size();i++){
+				cout <<i;
+                h.UpdateFile(indList[i]);
+			}else{
+				t.UpdateFile();
+				}
+			}
 
+			break;
             // Quit
-            case 7:
+            case 8:
                 cout << "Goodbye!" << endl;
                 quit = true;
                 break;
@@ -135,6 +171,6 @@ void displayMenu()
     cout << "5. Convert to a Search Tree" << endl;
     cout << "6. Print table contents" << endl;
     cout << "7. Export updated file" << endl;
-    cout << "7. Quit" << endl;
+    cout << "8. Quit" << endl;
     return;
 }

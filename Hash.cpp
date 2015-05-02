@@ -2,7 +2,8 @@
 #include <iostream>
 #include <stdio.h>
 #include <string>
-
+#include "Tree.cpp"
+#include "Tree.h"
 #include "Hash.h"
 
 using namespace std;
@@ -157,9 +158,11 @@ movie* Ptr = HashTable[v[i]];
             movieList.push_back(Ptr);
             Ptr = Ptr->next;
 		}
+		Tree x;
 		for (int j = 0; j <movieList.size();j++){
-			movie* newMovie = new movie(Ptr->imdb, Ptr->title, Ptr->year, Ptr->quantity);
-			movie * x = root;
+			x.addMovieNode(Ptr->imdb, Ptr->title, Ptr->year, Ptr->quantity);
+		
+		/*movie * x = root;
 		movie * y = NULL;
 
     if (root == NULL)
@@ -190,6 +193,20 @@ movie* Ptr = HashTable[v[i]];
     }
 
 	}
-}
+}*/
 	};
 
+void Hash::UpdateFile(int index)
+{
+	ofstream myfile("OrganizedMovies.txt");
+movie* Ptr = HashTable[index];
+
+        while(Ptr !=NULL)
+        {
+            myfile << Ptr->imdb << ","<< Ptr->title << "," << Ptr->year <<","<<Ptr->quantity<<endl;
+            Ptr = Ptr->next;
+		}
+		myfile.close();
+		
+ 
+};

@@ -46,6 +46,7 @@ void FindMovie(string title);
 int numItems(int index);
 void PrintTable(int index);
 void convertTable(vector<int>* v);
+void UpdateFile(int index);
 };
 
 
