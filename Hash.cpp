@@ -47,7 +47,7 @@ if (HashTable[index] == NULL)
 }
 };
 
-Deletes movie from a hashTable
+//Deletes movie from a hashTable
 void Hash::DelMovie(string title)
 {
     movie* Ptr = HashTable[hashSum(title)];
@@ -196,7 +196,7 @@ movie* Ptr = HashTable[v[i]];
 }*/
 	};
 
-void Hash::UpdateFile(int index)
+void Hash::UpdateFiler(int index)
 {
 	ofstream myfile("OrganizedMovies.txt");
 movie* Ptr = HashTable[index];

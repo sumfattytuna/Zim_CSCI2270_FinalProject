@@ -1,10 +1,13 @@
 #ifndef TREE_H
 #define TREE_H
 
-
+#include <stdlib.h>
+#include <iostream>
+#include <string>
+#include <vector>
 
 struct MovieNode{
-    int ranking;
+    int imdb;
     std::string title;
     int year;
     int quantity;
@@ -29,7 +32,6 @@ struct MovieNode{
 class Tree
 {
         int opCount;
-
     public:
         Tree();
         virtual ~Tree();

@@ -138,7 +138,7 @@ Tree t;
 			if (isHash == true){
 				for (unsigned int i = 0;i<indList.size();i++){
 				cout <<i;
-                h.UpdateFile(indList[i]);
+                h.UpdateFiler(indList[i]);
 			}else{
 				t.UpdateFile();
 				}
@@ -172,5 +172,6 @@ void displayMenu()
     cout << "6. Print table contents" << endl;
     cout << "7. Export updated file" << endl;
     cout << "8. Quit" << endl;
-    return;
+
+ return;
 }

@@ -35,7 +35,7 @@ private:
    
 	 movie *root;
     movie* HashTable[tableSize];
-    vector<movie> movielist;
+    vector<movie> movieList;
 public:
     void hasher();
 
@@ -46,7 +46,7 @@ void FindMovie(string title);
 int numItems(int index);
 void PrintTable(int index);
 void convertTable(vector<int>* v);
-void UpdateFile(int index);
+void UpdateFiler(int index);
 };
 
 
